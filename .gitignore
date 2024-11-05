@@ -1,0 +1,4 @@
+
+*.txt
+.ssh/first_key.pub
+.ssh/first_key
