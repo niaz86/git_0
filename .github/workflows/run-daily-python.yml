@@ -1,0 +1,41 @@
+name: Run Python Script Daily at 9 AM
+
+# This will trigger the action daily at 9 AM UTC
+on:
+  schedule:
+    - cron: '0 9 * * *'  # Runs every day at 9 AM UTC
+
+# Define the jobs in the workflow
+jobs:
+  run-python-script:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Checkout the code from your repository
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    # Set up Python environment
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'  # Specify Python version (change if necessary)
+
+    # Install dependencies (requests, pandas, lxml)
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        python -m pip install requests lxml pandas
+
+    # Run your Python script
+    - name: Run Python script
+      run: python path_to_your_script.py  # Replace with the path to your Python script
+
+    # Upload CSV files (optional, if you need to save them as artifacts)
+    - name: Upload CSV files
+      uses: actions/upload-artifact@v3
+      with:
+        name: gold-silver-analysis
+        path: |
+          Analysis\ of\ Gold\ marketing.csv
+          Analysis\ of\ Silver\ marketing.csv
