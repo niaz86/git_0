@@ -2,3 +2,6 @@
 *.txt
 .ssh/first_key.pub
 .ssh/first_key
+.venv/pyvenv.cfg
+/venv
+requirements.text
