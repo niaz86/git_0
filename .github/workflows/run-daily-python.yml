@@ -30,7 +30,7 @@ jobs:
 
     # Run your Python script
     - name: Run Python script
-      run: python rate_plot.ipynb  # Replace with the path to your Python script
+      run: python rate_plot.py  # Replace with the path to your Python script
 
     # Upload CSV files (optional, if you need to save them as artifacts)
     - name: Upload CSV files
