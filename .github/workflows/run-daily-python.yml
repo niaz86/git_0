@@ -57,6 +57,12 @@ jobs:
 
         git commit -m "Update CSV file(s)"
         git push
+        - name: Upload Analysis Results
+        uses: actions/upload-artifact@v4
+        with:
+          name: gold-silver-analysis
+          path: ./results/gold-silver-analysis.csv  # Replace with your actual path
+        
 
       env:
         # GitHub token to authenticate the push operation
