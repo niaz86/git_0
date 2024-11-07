@@ -41,3 +41,23 @@ jobs:
         path: |
           Analysis\ of\ Gold\ marketing.csv
           Analysis\ of\ Silver\ marketing.csv
+          
+    
+    - name: Commit and push changes
+      run: |
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+        
+        # Check if there are any changes
+        git add ./*.csv
+        if git diff-index --quiet HEAD; then
+          echo "No changes in CSV files. Exiting..."
+          exit 0
+        fi
+
+        git commit -m "Update CSV file(s)"
+        git push
+
+      env:
+        # GitHub token to authenticate the push operation
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}    
