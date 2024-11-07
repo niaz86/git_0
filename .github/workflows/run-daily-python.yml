@@ -61,7 +61,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: gold-silver-analysis
-        path: ./results/gold-silver-analysis.csv  # Replace with your actual path
+        path: ./gold-silver-analysis.csv  # Replace with your actual path
       
 
       env:
